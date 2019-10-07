@@ -13,7 +13,7 @@ epcsub <- epc %>% filter(Date=="1/2/2007" | Date=="2/2/2007") %>%
   mutate(datetime = as.POSIXct(strptime(paste(Date, Time), "%d/%m/%Y %H:%M:%S")))
 png(filename="plot4.png")
 par(mfrow=c(2,2))
-with(epcsub, plot(datetime, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
+with(epcsub, plot(datetime, Global_active_power, type="l", xlab="", ylab="Global Active Power"))
 with(epcsub, plot(datetime, Voltage, type="l"))
 with(epcsub, plot(datetime, Sub_metering_1, type="l", xlab="", ylab="Energy sub metering"))
 with(epcsub, lines(datetime, Sub_metering_2, col="red"))
