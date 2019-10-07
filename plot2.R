@@ -1,3 +1,11 @@
+fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+filename <- "power_consumption.zip"
+
+if(!file.exists(filename)) {
+  download.file(fileUrl, filename)
+}
+unzip(filename)
+
 epc <- read.csv("household_power_consumption.txt", sep=";", na.strings="?", 
                 colClasses = c(rep("character", times=2),rep("numeric", times=7)))
 library(dplyr)
